@@ -6,7 +6,7 @@ let smallerSide = Math.min(window.innerHeight, window.innerWidth)
 letterCanvas.width = smallerSide;
 letterCanvas.height = smallerSide;
 let isDrawing = false;
-let currentLetter = 'b'
+let currentLetter = 'A'
 
 function getSource(event) {
   if (event.touches) {
@@ -129,7 +129,7 @@ function drawLetterTemplate(letter) {
 
 const letters = [
   {
-    name: "a",
+    name: "A",
     parts: [
       {
         type: "line",
@@ -159,7 +159,7 @@ const letters = [
     size: 500
   },
   {
-    name: "b",
+    name: "B",
     parts: [
       {
         type: "line",
@@ -193,7 +193,7 @@ const letters = [
     size: 500
   },
   {
-    name: "c",
+    name: "C",
     parts: [
       {
         type: "curve",
