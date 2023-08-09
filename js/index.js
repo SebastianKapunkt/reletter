@@ -215,6 +215,21 @@ window.onload = () => {
   'use strict';
 
   if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('./js/service-worker.js');
+    navigator.serviceWorker.register('./service-worker.js');
+  }
+}
+
+window.addEventListener('beforeinstallprompt', (e) => {
+  this.deferredPrompt = e;
+  document.getElementById('pwa-install').style.display = 'flex';
+});
+
+async function installPwa() {
+  if (this.deferredPrompt !== null) {
+    this.deferredPrompt.prompt();
+    const {outcome} = await this.deferredPrompt.userChoice;
+    if (outcome === 'accepted') {
+      this.deferredPrompt = null;
+    }
   }
 }

@@ -4,12 +4,27 @@
   <title>Reletter</title>
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0,  minimum-scale=1.0">
-  <link rel="manifest" href="/manifest.json">
+  <link rel="manifest" href="manifest.json">
   <meta name="theme-color" content="white"/>
+  <link rel="icon" href="favicon.ico" type="image/x-icon" />
+  <link rel="apple-touch-icon" href="images/reletter-152.png">
+  <meta name="theme-color" content="white"/>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="white">
+  <meta name="apple-mobile-web-app-title" content="Reltter">
+  <meta name="msapplication-TileImage" content="images/reletter-144.png">
+  <meta name="msapplication-TileColor" content="#FFFFFF">
+
+
   <link href="css/main.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div class="fullscreen">
+  <div id="pwa-install" style="padding: 12px">
+    <div class="action" onclick="installPwa()">
+      Install as App
+    </div>
+  </div>
   <div id="canvas-wrapper" style="position: relative; flex-grow: 1; display: flex; align-items: center; ">
     <canvas id="letter-canvas" style="background: white;">
     </canvas>
