@@ -1,9 +1,9 @@
 var cacheName = 'reletter-pwa';
 var filesToCache = [
-  '/',
-  '/index.html',
-  '/css/main.css',
-  '/js/index.js'
+  '/reletter/',
+  '/reletter/index.html',
+  '/reletter/css/main.css',
+  '/reletter/js/index.js'
 ];
 
 /* Start the service worker and cache all of the app's content */

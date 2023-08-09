@@ -9,45 +9,47 @@
   <link href="css/main.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
+<div class="fullscreen">
+  <div id="canvas-wrapper" style="position: relative; flex-grow: 1; display: flex; align-items: center; ">
+    <canvas id="letter-canvas" style="background: white;">
+    </canvas>
+  </div>
+  <div id="action-wrapper" class="action__wrapper">
+    <button class="action" onclick="openLetterSelection()">
+      A<span style="font-size: 80%">b</span><span style="font-size: 60%">c</span>
+    </button>
+    <button class="action action--trash" onclick="clearCanvas()">
+
+    </button>
+  </div>
+</div>
 <div id="letter-select" style="display: none;">
   <div onclick="selectLetter('a')">A</div>
   <div onclick="selectLetter('b')">B</div>
   <div onclick="selectLetter('c')">C</div>
-<!--  <div onclick="selectLetter('d')">D</div>-->
-<!--  <div onclick="selectLetter('e')">E</div>-->
-<!--  <div onclick="selectLetter('f')">F</div>-->
-<!--  <div onclick="selectLetter('g')">G</div>-->
-<!--  <div onclick="selectLetter('h')">H</div>-->
-<!--  <div onclick="selectLetter('i')">I</div>-->
-<!--  <div onclick="selectLetter('j')">J</div>-->
-<!--  <div onclick="selectLetter('k')">K</div>-->
-<!--  <div onclick="selectLetter('l')">L</div>-->
-<!--  <div onclick="selectLetter('m')">M</div>-->
-<!--  <div onclick="selectLetter('n')">N</div>-->
-<!--  <div onclick="selectLetter('o')">O</div>-->
-<!--  <div onclick="selectLetter('p')">P</div>-->
-<!--  <div onclick="selectLetter('q')">Q</div>-->
-<!--  <div onclick="selectLetter('r')">R</div>-->
-<!--  <div onclick="selectLetter('s')">S</div>-->
-<!--  <div onclick="selectLetter('t')">T</div>-->
-<!--  <div onclick="selectLetter('u')">U</div>-->
-<!--  <div onclick="selectLetter('v')">V</div>-->
-<!--  <div onclick="selectLetter('w')">W</div>-->
-<!--  <div onclick="selectLetter('x')">X</div>-->
-<!--  <div onclick="selectLetter('y')">Y</div>-->
-<!--  <div onclick="selectLetter('z')">Z</div>-->
-</div>
-<div id="canvas-wrapper" class="fullscreen">
-  <canvas id="letter-canvas" width="500" height="500">
-  </canvas>
-  <div id="action-wrapper">
-  <button id="letter-selection" onclick="openLetterSelection()">
-    Buchstabe auswählen
-  </button>
-    <button id="letter-clear" onclick="clearCanvas()">
-      leeren
-    </button>
-    </div>
+  <!--  <div onclick="selectLetter('d')">D</div>-->
+  <!--  <div onclick="selectLetter('e')">E</div>-->
+  <!--  <div onclick="selectLetter('f')">F</div>-->
+  <!--  <div onclick="selectLetter('g')">G</div>-->
+  <!--  <div onclick="selectLetter('h')">H</div>-->
+  <!--  <div onclick="selectLetter('i')">I</div>-->
+  <!--  <div onclick="selectLetter('j')">J</div>-->
+  <!--  <div onclick="selectLetter('k')">K</div>-->
+  <!--  <div onclick="selectLetter('l')">L</div>-->
+  <!--  <div onclick="selectLetter('m')">M</div>-->
+  <!--  <div onclick="selectLetter('n')">N</div>-->
+  <!--  <div onclick="selectLetter('o')">O</div>-->
+  <!--  <div onclick="selectLetter('p')">P</div>-->
+  <!--  <div onclick="selectLetter('q')">Q</div>-->
+  <!--  <div onclick="selectLetter('r')">R</div>-->
+  <!--  <div onclick="selectLetter('s')">S</div>-->
+  <!--  <div onclick="selectLetter('t')">T</div>-->
+  <!--  <div onclick="selectLetter('u')">U</div>-->
+  <!--  <div onclick="selectLetter('v')">V</div>-->
+  <!--  <div onclick="selectLetter('w')">W</div>-->
+  <!--  <div onclick="selectLetter('x')">X</div>-->
+  <!--  <div onclick="selectLetter('y')">Y</div>-->
+  <!--  <div onclick="selectLetter('z')">Z</div>-->
 </div>
 <script src="js/index.js"></script>
 </body>

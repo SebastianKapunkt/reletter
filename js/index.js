@@ -1,7 +1,5 @@
-let canvasWrapper = document.getElementById("canvas-wrapper");
 let letterCanvas = document.getElementById("letter-canvas");
 let letterSelect = document.getElementById("letter-select");
-let actionWrapper = document.getElementById("action-wrapper");
 
 let context = letterCanvas.getContext("2d");
 let smallerSide = Math.min(window.innerHeight, window.innerWidth)
@@ -58,21 +56,10 @@ letterCanvas.addEventListener('touchend', stopDrawing);
 letterCanvas.addEventListener('mouseup', stopDrawing);
 
 function reportWindowSize() {
-  let smallerSide = Math.min(window.innerHeight, window.innerWidth)
+  smallerSide = Math.min(window.innerHeight, window.innerWidth)
   letterCanvas.width = smallerSide;
   letterCanvas.height = smallerSide;
-  canvasWrapper.height = window.innerHeight;
-  canvasWrapper.width = window.innerWidth;
-  drawLetterTemplate(currentLetter)
-  if (window.innerHeight < window.innerWidth) {
-    actionWrapper.style.flexDirection = "column";
-    canvasWrapper.style.flexDirection = "row";
-    canvasWrapper.style.padding = "0px 32px"
-  } else {
-    actionWrapper.style.flexDirection = "row";
-    canvasWrapper.style.flexDirection = "column";
-    canvasWrapper.style.padding = "32px 0px"
-  }
+  clearCanvas()
 }
 
 window.addEventListener('resize', reportWindowSize);
@@ -222,7 +209,7 @@ const letters = [
   }
 ]
 
-drawLetterTemplate(currentLetter)
+reportWindowSize()
 
 window.onload = () => {
   'use strict';
