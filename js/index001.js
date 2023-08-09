@@ -6,7 +6,7 @@ let smallerSide = Math.min(window.innerHeight, window.innerWidth)
 letterCanvas.width = smallerSide;
 letterCanvas.height = smallerSide;
 let isDrawing = false;
-let currentLetter = 'S'
+let currentLetter = 'A'
 
 function getSource(event) {
   if (event.touches) {
