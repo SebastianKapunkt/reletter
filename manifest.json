@@ -5,8 +5,8 @@
   "start_url": ".",
   "scope": "/reletter/",
   "display": "standalone",
-  "background_color": "white",
-  "theme_color": "white",
+  "background_color": "lavender",
+  "theme_color": "lavender",
   "icons": [
     {
       "src": "images/windows11/SmallTile.scale-100.png",
