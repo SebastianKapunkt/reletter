@@ -1,3 +1,4 @@
+var version = '1'
 var cacheName = 'reletter-pwa';
 var filesToCache = [
   '/reletter/',
