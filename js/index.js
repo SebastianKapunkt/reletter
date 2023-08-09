@@ -6,7 +6,7 @@ let smallerSide = Math.min(window.innerHeight, window.innerWidth)
 letterCanvas.width = smallerSide;
 letterCanvas.height = smallerSide;
 let isDrawing = false;
-let currentLetter = 'A'
+let currentLetter = 'S'
 
 function getSource(event) {
   if (event.touches) {
@@ -206,8 +206,132 @@ const letters = [
         base: 500
       }
     ],
+  },
+  {
+    name: "D",
+    parts: [
+      {
+        type: "line",
+        points: [
+          {x: 150, y: 50},
+          {x: 150, y: 450},
+        ],
+        base: 500
+      },
+      {
+        type: "curve",
+        points: [
+          {x: 150, y: 50},
+          {x: 450, y: 50},
+          {x: 450, y: 450},
+          {x: 150, y: 450},
+        ],
+        base: 500
+      }
+    ],
+  },
+  {
+    name: 'T',
+    parts: [
+      {
+        type: 'line',
+        points: [
+          {x: 50, y: 50},
+          {x: 450, y: 50},
+        ],
+        base: 500
+      },
+      {
+        type: 'line',
+        points: [
+          {x: 250, y: 50},
+          {x: 250, y: 450},
+        ],
+        base: 500
+      }
+    ],
+  },
+  {
+    name: 'O',
+    parts: [
+      {
+        type: 'curve',
+        points: [
+          {x: 250, y: 75},
+          {x: 50, y: 75},
+          {x: 50, y: 425},
+          {x: 250, y: 425},
+        ],
+        base: 500
+      },
+      {
+        type: 'curve',
+        points: [
+          {x: 250, y: 75},
+          {x: 450, y: 75},
+          {x: 450, y: 425},
+          {x: 250, y: 425},
+        ],
+        base: 500
+      },
+    ],
+  },
+  {
+    name: 'N',
+    parts: [
+      {
+        type: 'line',
+        points: [
+          {x: 100, y: 50},
+          {x: 100, y: 450},
+        ],
+        base: 500
+      },
+      {
+        type: 'line',
+        points: [
+          {x: 100, y: 50},
+          {x: 400, y: 450},
+        ],
+        base: 500
+      },
+      {
+        type: 'line',
+        points: [
+          {x: 400, y: 50},
+          {x: 400, y: 450},
+        ],
+        base: 500
+      },
+    ],
+  },
+  {
+    name: 'S',
+    parts: [
+      {
+        type: 'curve',
+        points: [
+          {x: 350, y: 80},
+          {x: 150, y: -50},
+          {x: 50, y: 220},
+          {x: 235, y: 235},
+        ],
+        base: 500
+      },
+      {
+        type: 'curve',
+        points: [
+          {x: 235, y: 235},
+          {x: 450, y: 250},
+          {x: 350, y: 550},
+          {x: 130, y: 400},
+        ],
+        base: 500
+      },
+    ],
   }
 ]
+
 
 reportWindowSize()
 
