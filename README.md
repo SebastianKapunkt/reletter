@@ -12,7 +12,7 @@
 
 ## About The Project
 
-Reletter is an interactive PWA designed to help young children learn and practice writing latin alphabet letters (A-Z). Through guided tracing on a digital canvas, kids can develop essential fine motor skills and master correct letter formation in a simple and accessible way.
+Reletter is an interactive PWA designed to help young children learn and practice writing latin alphabet letters (A-Z and a-z). Through guided tracing on a digital canvas, kids can develop essential fine motor skills and master correct letter formation in a simple and accessible way.
 ## 🖼️ Screenshots
 
 <p align="center">

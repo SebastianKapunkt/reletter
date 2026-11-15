@@ -4,7 +4,12 @@ var filesToCache = [
   '/reletter/',
   '/reletter/index.html',
   '/reletter/css/main.css',
-  '/reletter/js/index.js'
+  '/reletter/js/index.js',
+  '/reletter/js/letters.js',
+  '/reletter/js/letter-renderer.js',
+  '/reletter/alphabet.html',
+  '/reletter/css/alphabet.css',
+  '/reletter/js/alphabet.js'
 ];
 
 /* Start the service worker and cache all of the app's content */

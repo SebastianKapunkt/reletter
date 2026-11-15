@@ -1,0 +1,37 @@
+body {
+  margin: 0;
+  padding: 24px;
+  font-family: Verdana, sans-serif;
+  color: #27333d;
+  background: lavender;
+}
+
+h1 {
+  font-size: 1.5rem;
+}
+
+p {
+  line-height: 1.5;
+}
+
+.alphabet-row {
+  overflow-x: auto;
+  background: white;
+  border: 1px solid lightslategrey;
+}
+
+.alphabet-strip {
+  display: flex;
+  position: relative;
+  width: max-content;
+}
+
+canvas {
+  display: block;
+  width: 220px;
+  height: 220px;
+}
+
+a {
+  color: #344d70;
+}

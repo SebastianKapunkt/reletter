@@ -3,6 +3,14 @@
   --draw-color: lightcoral;
 }
 
+html,
+body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  overscroll-behavior: none;
+}
+
 body {
   margin: 0;
   font-family: Verdana, sans-serif;
@@ -18,6 +26,7 @@ body {
   gap: 8px;
   box-sizing: border-box;
   background: lavender;
+  touch-action: none;
 }
 
 #letter-select {
@@ -29,20 +38,39 @@ body {
   box-sizing: border-box;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-auto-rows: auto;
+  grid-auto-rows: minmax(64px, 1fr);
+  overflow-y: auto;
+  overscroll-behavior: none;
+  touch-action: pan-y;
   background-color: lavender;
   font-size: 200%;
   gap: 12px;
   padding: 12px;
 }
 
-#letter-select div {
+#letter-select .letter-tile {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-  color: white;
   background-color: var(--primary-color);
+}
+
+.letter-tile button {
+  flex: 1;
+  min-width: 0;
+  border: none;
+  padding: 8px 0;
+  font: inherit;
+  color: white;
+  background: transparent;
+  cursor: pointer;
+}
+
+.letter-tile button + button {
+  border-left: 2px solid white;
+}
+
+.letter-tile button:focus-visible {
+  outline: 3px solid lightcoral;
+  outline-offset: -3px;
 }
 
 #letter-selection {

@@ -3,7 +3,7 @@
 <head>
   <title>Reletter</title>
   <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0,  minimum-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <link rel="manifest" href="manifest.json">
   <meta name="theme-color" content="lavender"/>
   <link rel="icon" href="favicon.ico" type="image/x-icon"/>
@@ -24,7 +24,7 @@
       Install as App
     </div>
   </div>
-  <div id="canvas-wrapper" style="position: relative; flex-grow: 1; display: flex; align-items: center; ">
+  <div id="canvas-wrapper" style="position: relative; flex-grow: 1; width: 100%; display: flex; align-items: center; justify-content: center; ">
     <canvas id="letter-canvas" style="background: white;">
     </canvas>
   </div>
@@ -38,33 +38,112 @@
   </div>
 </div>
 <div id="letter-select" style="display: none;">
-  <div onclick="selectLetter('A')">A</div>
-  <div onclick="selectLetter('B')">B</div>
-  <div onclick="selectLetter('C')">C</div>
-  <div onclick="selectLetter('D')">D</div>
-  <div onclick="selectLetter('E')">E</div>
-  <div onclick="selectLetter('F')">F</div>
-  <div onclick="selectLetter('G')">G</div>
-  <div onclick="selectLetter('H')">H</div>
-  <div onclick="selectLetter('I')">I</div>
-  <div onclick="selectLetter('J')">J</div>
-  <div onclick="selectLetter('K')">K</div>
-  <div onclick="selectLetter('L')">L</div>
-  <div onclick="selectLetter('M')">M</div>
-  <div onclick="selectLetter('N')">N</div>
-  <div onclick="selectLetter('O')">O</div>
-  <div onclick="selectLetter('P')">P</div>
-  <div onclick="selectLetter('Q')">Q</div>
-  <div onclick="selectLetter('R')">R</div>
-  <div onclick="selectLetter('S')">S</div>
-  <div onclick="selectLetter('T')">T</div>
-  <div onclick="selectLetter('U')">U</div>
-  <div onclick="selectLetter('V')">V</div>
-  <div onclick="selectLetter('W')">W</div>
-  <div onclick="selectLetter('X')">X</div>
-  <div onclick="selectLetter('Y')">Y</div>
-  <div onclick="selectLetter('Z')">Z</div>
+  <div class="letter-tile">
+    <button type="button" onclick="selectLetter('A')" aria-label="Uppercase A">A</button>
+    <button type="button" onclick="selectLetter('a')" aria-label="Lowercase a">a</button>
+  </div>
+  <div class="letter-tile">
+    <button type="button" onclick="selectLetter('B')" aria-label="Uppercase B">B</button>
+    <button type="button" onclick="selectLetter('b')" aria-label="Lowercase b">b</button>
+  </div>
+  <div class="letter-tile">
+    <button type="button" onclick="selectLetter('C')" aria-label="Uppercase C">C</button>
+    <button type="button" onclick="selectLetter('c')" aria-label="Lowercase c">c</button>
+  </div>
+  <div class="letter-tile">
+    <button type="button" onclick="selectLetter('D')" aria-label="Uppercase D">D</button>
+    <button type="button" onclick="selectLetter('d')" aria-label="Lowercase d">d</button>
+  </div>
+  <div class="letter-tile">
+    <button type="button" onclick="selectLetter('E')" aria-label="Uppercase E">E</button>
+    <button type="button" onclick="selectLetter('e')" aria-label="Lowercase e">e</button>
+  </div>
+  <div class="letter-tile">
+    <button type="button" onclick="selectLetter('F')" aria-label="Uppercase F">F</button>
+    <button type="button" onclick="selectLetter('f')" aria-label="Lowercase f">f</button>
+  </div>
+  <div class="letter-tile">
+    <button type="button" onclick="selectLetter('G')" aria-label="Uppercase G">G</button>
+    <button type="button" onclick="selectLetter('g')" aria-label="Lowercase g">g</button>
+  </div>
+  <div class="letter-tile">
+    <button type="button" onclick="selectLetter('H')" aria-label="Uppercase H">H</button>
+    <button type="button" onclick="selectLetter('h')" aria-label="Lowercase h">h</button>
+  </div>
+  <div class="letter-tile">
+    <button type="button" onclick="selectLetter('I')" aria-label="Uppercase I">I</button>
+    <button type="button" onclick="selectLetter('i')" aria-label="Lowercase i">i</button>
+  </div>
+  <div class="letter-tile">
+    <button type="button" onclick="selectLetter('J')" aria-label="Uppercase J">J</button>
+    <button type="button" onclick="selectLetter('j')" aria-label="Lowercase j">j</button>
+  </div>
+  <div class="letter-tile">
+    <button type="button" onclick="selectLetter('K')" aria-label="Uppercase K">K</button>
+    <button type="button" onclick="selectLetter('k')" aria-label="Lowercase k">k</button>
+  </div>
+  <div class="letter-tile">
+    <button type="button" onclick="selectLetter('L')" aria-label="Uppercase L">L</button>
+    <button type="button" onclick="selectLetter('l')" aria-label="Lowercase l">l</button>
+  </div>
+  <div class="letter-tile">
+    <button type="button" onclick="selectLetter('M')" aria-label="Uppercase M">M</button>
+    <button type="button" onclick="selectLetter('m')" aria-label="Lowercase m">m</button>
+  </div>
+  <div class="letter-tile">
+    <button type="button" onclick="selectLetter('N')" aria-label="Uppercase N">N</button>
+    <button type="button" onclick="selectLetter('n')" aria-label="Lowercase n">n</button>
+  </div>
+  <div class="letter-tile">
+    <button type="button" onclick="selectLetter('O')" aria-label="Uppercase O">O</button>
+    <button type="button" onclick="selectLetter('o')" aria-label="Lowercase o">o</button>
+  </div>
+  <div class="letter-tile">
+    <button type="button" onclick="selectLetter('P')" aria-label="Uppercase P">P</button>
+    <button type="button" onclick="selectLetter('p')" aria-label="Lowercase p">p</button>
+  </div>
+  <div class="letter-tile">
+    <button type="button" onclick="selectLetter('Q')" aria-label="Uppercase Q">Q</button>
+    <button type="button" onclick="selectLetter('q')" aria-label="Lowercase q">q</button>
+  </div>
+  <div class="letter-tile">
+    <button type="button" onclick="selectLetter('R')" aria-label="Uppercase R">R</button>
+    <button type="button" onclick="selectLetter('r')" aria-label="Lowercase r">r</button>
+  </div>
+  <div class="letter-tile">
+    <button type="button" onclick="selectLetter('S')" aria-label="Uppercase S">S</button>
+    <button type="button" onclick="selectLetter('s')" aria-label="Lowercase s">s</button>
+  </div>
+  <div class="letter-tile">
+    <button type="button" onclick="selectLetter('T')" aria-label="Uppercase T">T</button>
+    <button type="button" onclick="selectLetter('t')" aria-label="Lowercase t">t</button>
+  </div>
+  <div class="letter-tile">
+    <button type="button" onclick="selectLetter('U')" aria-label="Uppercase U">U</button>
+    <button type="button" onclick="selectLetter('u')" aria-label="Lowercase u">u</button>
+  </div>
+  <div class="letter-tile">
+    <button type="button" onclick="selectLetter('V')" aria-label="Uppercase V">V</button>
+    <button type="button" onclick="selectLetter('v')" aria-label="Lowercase v">v</button>
+  </div>
+  <div class="letter-tile">
+    <button type="button" onclick="selectLetter('W')" aria-label="Uppercase W">W</button>
+    <button type="button" onclick="selectLetter('w')" aria-label="Lowercase w">w</button>
+  </div>
+  <div class="letter-tile">
+    <button type="button" onclick="selectLetter('X')" aria-label="Uppercase X">X</button>
+    <button type="button" onclick="selectLetter('x')" aria-label="Lowercase x">x</button>
+  </div>
+  <div class="letter-tile">
+    <button type="button" onclick="selectLetter('Y')" aria-label="Uppercase Y">Y</button>
+    <button type="button" onclick="selectLetter('y')" aria-label="Lowercase y">y</button>
+  </div>
+  <div class="letter-tile">
+    <button type="button" onclick="selectLetter('Z')" aria-label="Uppercase Z">Z</button>
+    <button type="button" onclick="selectLetter('z')" aria-label="Lowercase z">z</button>
+  </div>
 </div>
 <script src="js/letters.js"></script>
+<script src="js/letter-renderer.js"></script>
 <script src="js/index.js"></script>
 </body>

@@ -2,17 +2,17 @@ let letterCanvas = document.getElementById("letter-canvas");
 let letterSelect = document.getElementById("letter-select");
 
 let context = letterCanvas.getContext("2d");
-let smallerSide = Math.min(window.innerHeight, window.innerWidth)
+let smallerSide = Math.max(1, Math.min(window.innerHeight, window.innerWidth) - 32);
 letterCanvas.width = smallerSide;
 letterCanvas.height = smallerSide;
 let isDrawing = false;
-let currentLetter = 'Z'
+let currentLetter = 'A';
 
 function getSource(event) {
   if (event.touches) {
-    return event.touches[0]
+    return event.touches[0];
   } else {
-    return event
+    return event;
   }
 }
 
@@ -36,37 +36,35 @@ function startDrawing(event) {
   isDrawing = true;
   event.preventDefault();
   context.beginPath();
-  context.lineWidth = smallerSide / 16;
-  context.lineCap = "round";
-  context.strokeStyle = window.getComputedStyle(document.documentElement).getPropertyValue('--draw-color');
+  setStrokeStyle('--draw-color');
 }
 
 function stopDrawing() {
   isDrawing = false;
 }
 
-letterCanvas.addEventListener('touchstart', startDrawing);
+letterCanvas.addEventListener('touchstart', startDrawing, {passive: false});
 letterCanvas.addEventListener('mousedown', startDrawing);
 
-letterCanvas.addEventListener('touchmove', drawing);
+letterCanvas.addEventListener('touchmove', drawing, {passive: false});
 letterCanvas.addEventListener('mousemove', drawing);
 
 letterCanvas.addEventListener('touchend', stopDrawing);
 letterCanvas.addEventListener('mouseup', stopDrawing);
 
 function reportWindowSize() {
-  smallerSide = Math.min(window.innerHeight, window.innerWidth)
+  smallerSide = Math.max(1, Math.min(window.innerHeight, window.innerWidth) - 32);
   letterCanvas.width = smallerSide;
   letterCanvas.height = smallerSide;
-  clearCanvas()
+  clearCanvas();
 }
 
 window.addEventListener('resize', reportWindowSize);
 
 function selectLetter(letter) {
   context.clearRect(0, 0, letterCanvas.width, letterCanvas.height);
-  currentLetter = letter
-  drawLetterTemplate(letter)
+  currentLetter = letter;
+  drawLetterTemplate(letter);
   letterSelect.style.display = "none";
 }
 
@@ -76,51 +74,22 @@ function openLetterSelection() {
 
 function clearCanvas() {
   context.clearRect(0, 0, letterCanvas.width, letterCanvas.height);
-  drawLetterTemplate(currentLetter)
+  drawLetterTemplate(currentLetter);
 }
 
-function getCoordinate(point, base) {
-  return (point * smallerSide) / base
+function setStrokeStyle(color) {
+  context.lineWidth = smallerSide / 16;
+  context.lineCap = "round";
+  context.lineJoin = "round";
+  context.strokeStyle = window.getComputedStyle(document.documentElement).getPropertyValue(color);
 }
 
 function drawLetterTemplate(letter) {
-  let selected = letters.find(l => l.name === letter)
-  context.lineWidth = smallerSide / 16;
-  context.lineCap = "round";
-  context.strokeStyle = window.getComputedStyle(document.documentElement).getPropertyValue('--primary-color');
-  context.beginPath();
-  selected.parts.forEach(part => {
-    if (part.type === "line") {
-      context.moveTo(
-        getCoordinate(part.points[0].x, part.base),
-        getCoordinate(part.points[0].y, part.base)
-      )
-      context.lineTo(
-        getCoordinate(part.points[1].x, part.base),
-        getCoordinate(part.points[1].y, part.base)
-      )
-    }
-    if (part.type === "curve") {
-      context.beginPath();
-      context.moveTo(
-        getCoordinate(part.points[0].x, part.base),
-        getCoordinate(part.points[0].y, part.base)
-      )
-      context.bezierCurveTo(
-        getCoordinate(part.points[1].x, part.base),
-        getCoordinate(part.points[1].y, part.base),
-        getCoordinate(part.points[2].x, part.base),
-        getCoordinate(part.points[2].y, part.base),
-        getCoordinate(part.points[3].x, part.base),
-        getCoordinate(part.points[3].y, part.base)
-      )
-    }
-    context.stroke();
-  })
-  context.closePath();
+  const color = window.getComputedStyle(document.documentElement).getPropertyValue('--primary-color');
+  renderLetterTemplate(context, letter, smallerSide, color);
 }
 
-reportWindowSize()
+reportWindowSize();
 
 window.onload = () => {
   'use strict';
