@@ -13,6 +13,17 @@
 ## About The Project
 
 Reletter is an interactive PWA designed to help young children learn and practice writing latin alphabet letters (A-Z and a-z). Through guided tracing on a digital canvas, kids can develop essential fine motor skills and master correct letter formation in a simple and accessible way.
+## Writing words and letters
+
+- Choose a character from the grid to restore its latest drawing. The pencil icon opens word/sentence entry; the play icon resumes an unfinished word.
+- In word mode, tap a position in the bottom word strip or use the arrow to advance. Repeated letters keep separate drawings. The final checkmark displays the whole handwritten word in the same drawing area, without templates. Tap a word-strip letter to edit it again.
+- The trash icon clears only the active letter canvas; it is hidden while viewing a finished word. The grid icon returns to character selection.
+- History fills from right to left and holds up to 50 entries. Free drawings are individual entries; a finished word is one grouped entry. Hover/focus highlights its whole group, and clicking any of its thumbnails restores the whole word. When restoring an older word, unfinished word drawings are preserved as a resumable history group.
+- Strokes save locally after drawing and before switching. Reopening restores the active view; starting a new word replaces the previous word session.
+- If storage fills, oldest history entries are discarded first. Active work, word positions, and latest-character drawings are protected. Blocked/full storage can prevent persistence; there is no warning UI or cloud backup.
+
+Drawing uses standard [Pointer Events and pointer capture](https://developer.mozilla.org/en-US/docs/Web/API/Pointer_events), [ResizeObserver](https://developer.mozilla.org/en-US/docs/Web/API/ResizeObserver), and [Web Storage](https://developer.mozilla.org/en-US/docs/Web/API/Storage/setItem), without additional dependencies.
+
 ## 🖼️ Screenshots
 
 <p align="center">

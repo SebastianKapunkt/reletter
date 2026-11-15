@@ -709,10 +709,10 @@ const letters = [
   {
     name: "a",
     parts: [
-      {type: "curve", points: [{x: 155, y: 205}, {x: 200, y: 155}, {x: 350, y: 165}, {x: 350, y: 245}], base: 500},
-      {type: "line", points: [{x: 350, y: 245}, {x: 350, y: 380}], base: 500},
-      {type: "curve", points: [{x: 350, y: 270}, {x: 290, y: 245}, {x: 145, y: 245}, {x: 145, y: 315}], base: 500},
-      {type: "curve", points: [{x: 145, y: 315}, {x: 145, y: 410}, {x: 350, y: 395}, {x: 350, y: 315}], base: 500}
+      {type: "curve", points: [{x: 320, y: 190}, {x: 245, y: 165}, {x: 150, y: 245}, {x: 145, y: 310}], base: 500},
+      {type: "curve", points: [{x: 145, y: 310}, {x: 140, y: 390}, {x: 245, y: 405}, {x: 290, y: 325}], base: 500},
+      {type: "curve", points: [{x: 290, y: 325}, {x: 320, y: 275}, {x: 325, y: 225}, {x: 320, y: 190}], base: 500},
+      {type: "curve", points: [{x: 320, y: 190}, {x: 330, y: 255}, {x: 365, y: 340}, {x: 400, y: 380}], base: 500}
     ],
   },
   {

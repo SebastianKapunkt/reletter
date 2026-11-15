@@ -1,31 +1,41 @@
-var version = '1'
-var cacheName = 'reletter-pwa';
-var filesToCache = [
-  '/reletter/',
-  '/reletter/index.html',
-  '/reletter/css/main.css',
-  '/reletter/js/index.js',
-  '/reletter/js/letters.js',
-  '/reletter/js/letter-renderer.js',
-  '/reletter/alphabet.html',
-  '/reletter/css/alphabet.css',
-  '/reletter/js/alphabet.js'
+const cacheName = 'reletter-v12';
+const filesToCache = [
+  './',
+  './index.html',
+  './css/main.css',
+  './js/index.js',
+  './js/drawing-store.js',
+  './js/letters.js',
+  './js/letter-renderer.js',
+  './alphabet.html',
+  './css/alphabet.css',
+  './js/alphabet.js'
 ];
 
-/* Start the service worker and cache all of the app's content */
-self.addEventListener('install', function(e) {
-  e.waitUntil(
-    caches.open(cacheName).then(function(cache) {
-      return cache.addAll(filesToCache);
-    })
+self.addEventListener('install', event => {
+  event.waitUntil(
+    caches.open(cacheName)
+      .then(cache => cache.addAll(filesToCache))
+      .then(() => self.skipWaiting())
   );
 });
 
-/* Serve cached content when offline */
-self.addEventListener('fetch', function(e) {
-  e.respondWith(
-    caches.match(e.request).then(function(response) {
-      return response || fetch(e.request);
+self.addEventListener('activate', event => {
+  event.waitUntil(
+    caches.keys()
+      .then(names => Promise.all(names
+        .filter(name => name.startsWith('reletter-') && name !== cacheName)
+        .map(name => caches.delete(name))))
+      .then(() => self.clients.claim())
+  );
+});
+
+self.addEventListener('fetch', event => {
+  if (event.request.method !== 'GET' || !event.request.url.startsWith(self.registration.scope)) return;
+  event.respondWith(
+    caches.open(cacheName).then(async cache => {
+      const cached = await cache.match(event.request);
+      return cached || fetch(event.request);
     })
   );
 });

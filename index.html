@@ -1,149 +1,73 @@
 <!doctype html>
-<html>
+<html lang="en">
 <head>
   <title>Reletter</title>
-  <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="manifest" href="manifest.json">
-  <meta name="theme-color" content="lavender"/>
-  <link rel="icon" href="favicon.ico" type="image/x-icon"/>
+  <meta name="theme-color" content="lavender">
+  <link rel="icon" href="images/reletter-152.png" type="image/png">
   <link rel="apple-touch-icon" href="images/reletter-152.png">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="lavender">
-  <meta name="apple-mobile-web-app-title" content="Reltter">
-  <meta name="msapplication-TileImage" content="images/reletter-144.png">
-  <meta name="msapplication-TileColor" content="lavender">
-
-
-  <link href="css/main.css" rel="stylesheet" type="text/css"/>
+  <meta name="apple-mobile-web-app-title" content="Reletter">
+  <link href="css/main.css" rel="stylesheet">
 </head>
 <body>
-<div class="fullscreen">
-  <div id="pwa-install" style="padding: 12px; display: none;">
-    <div class="action" onclick="installPwa()">
-      Install as App
+<svg class="icon-definitions" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+  <defs>
+    <symbol id="icon-grid" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></symbol>
+    <symbol id="icon-back" viewBox="0 0 24 24"><path d="M19 12H5m6-6-6 6 6 6"/></symbol>
+    <symbol id="icon-next" viewBox="0 0 24 24"><path d="M5 12h14m-6-6 6 6-6 6"/></symbol>
+    <symbol id="icon-trash" viewBox="0 0 24 24"><path d="M3 6h18M9 6V3h6v3M5 6l1 15h12l1-15M10 10v7m4-7v7"/></symbol>
+    <symbol id="icon-word" viewBox="0 0 24 24"><path d="m4 19 1-5L16 3l5 5L10 19l-6 1m9-14 5 5M14 21h7"/></symbol>
+    <symbol id="icon-resume" viewBox="0 0 24 24"><path d="m10 7 7 5-7 5Z"/><circle cx="12" cy="12" r="10"/></symbol>
+    <symbol id="icon-done" viewBox="0 0 24 24"><path d="m4 12 5 5L20 6"/></symbol>
+    <symbol id="icon-install" viewBox="0 0 24 24"><path d="M12 3v12m-5-5 5 5 5-5M4 16v5h16v-5"/></symbol>
+  </defs>
+</svg>
+<main id="app">
+  <section id="grid-screen" class="screen" aria-label="Letter selection" hidden>
+    <div id="letter-grid" class="letter-grid"></div>
+    <div class="controls">
+      <button id="grid-back" class="action secondary" type="button" aria-label="Back to active drawing"><svg aria-hidden="true"><use href="#icon-back"/></svg></button>
+      <button id="new-word" class="action" type="button" aria-label="Start a word"><svg aria-hidden="true"><use href="#icon-word"/></svg></button>
+      <button id="install-app" class="action secondary" type="button" aria-label="Install app" hidden><svg aria-hidden="true"><use href="#icon-install"/></svg></button>
+      <button id="resume-word" class="action secondary advance" type="button" aria-label="Resume word" hidden><svg aria-hidden="true"><use href="#icon-resume"/></svg></button>
     </div>
-  </div>
-  <div id="canvas-wrapper" style="position: relative; flex-grow: 1; width: 100%; display: flex; align-items: center; justify-content: center; ">
-    <canvas id="letter-canvas" style="background: white;">
-    </canvas>
-  </div>
-  <div id="action-wrapper" class="action__wrapper">
-    <button class="action" onclick="openLetterSelection()">
-      A<span style="font-size: 80%">b</span><span style="font-size: 60%">c</span>
-    </button>
-    <button class="action action--trash" onclick="clearCanvas()">
+  </section>
 
-    </button>
-  </div>
-</div>
-<div id="letter-select" style="display: none;">
-  <div class="letter-tile">
-    <button type="button" onclick="selectLetter('A')" aria-label="Uppercase A">A</button>
-    <button type="button" onclick="selectLetter('a')" aria-label="Lowercase a">a</button>
-  </div>
-  <div class="letter-tile">
-    <button type="button" onclick="selectLetter('B')" aria-label="Uppercase B">B</button>
-    <button type="button" onclick="selectLetter('b')" aria-label="Lowercase b">b</button>
-  </div>
-  <div class="letter-tile">
-    <button type="button" onclick="selectLetter('C')" aria-label="Uppercase C">C</button>
-    <button type="button" onclick="selectLetter('c')" aria-label="Lowercase c">c</button>
-  </div>
-  <div class="letter-tile">
-    <button type="button" onclick="selectLetter('D')" aria-label="Uppercase D">D</button>
-    <button type="button" onclick="selectLetter('d')" aria-label="Lowercase d">d</button>
-  </div>
-  <div class="letter-tile">
-    <button type="button" onclick="selectLetter('E')" aria-label="Uppercase E">E</button>
-    <button type="button" onclick="selectLetter('e')" aria-label="Lowercase e">e</button>
-  </div>
-  <div class="letter-tile">
-    <button type="button" onclick="selectLetter('F')" aria-label="Uppercase F">F</button>
-    <button type="button" onclick="selectLetter('f')" aria-label="Lowercase f">f</button>
-  </div>
-  <div class="letter-tile">
-    <button type="button" onclick="selectLetter('G')" aria-label="Uppercase G">G</button>
-    <button type="button" onclick="selectLetter('g')" aria-label="Lowercase g">g</button>
-  </div>
-  <div class="letter-tile">
-    <button type="button" onclick="selectLetter('H')" aria-label="Uppercase H">H</button>
-    <button type="button" onclick="selectLetter('h')" aria-label="Lowercase h">h</button>
-  </div>
-  <div class="letter-tile">
-    <button type="button" onclick="selectLetter('I')" aria-label="Uppercase I">I</button>
-    <button type="button" onclick="selectLetter('i')" aria-label="Lowercase i">i</button>
-  </div>
-  <div class="letter-tile">
-    <button type="button" onclick="selectLetter('J')" aria-label="Uppercase J">J</button>
-    <button type="button" onclick="selectLetter('j')" aria-label="Lowercase j">j</button>
-  </div>
-  <div class="letter-tile">
-    <button type="button" onclick="selectLetter('K')" aria-label="Uppercase K">K</button>
-    <button type="button" onclick="selectLetter('k')" aria-label="Lowercase k">k</button>
-  </div>
-  <div class="letter-tile">
-    <button type="button" onclick="selectLetter('L')" aria-label="Uppercase L">L</button>
-    <button type="button" onclick="selectLetter('l')" aria-label="Lowercase l">l</button>
-  </div>
-  <div class="letter-tile">
-    <button type="button" onclick="selectLetter('M')" aria-label="Uppercase M">M</button>
-    <button type="button" onclick="selectLetter('m')" aria-label="Lowercase m">m</button>
-  </div>
-  <div class="letter-tile">
-    <button type="button" onclick="selectLetter('N')" aria-label="Uppercase N">N</button>
-    <button type="button" onclick="selectLetter('n')" aria-label="Lowercase n">n</button>
-  </div>
-  <div class="letter-tile">
-    <button type="button" onclick="selectLetter('O')" aria-label="Uppercase O">O</button>
-    <button type="button" onclick="selectLetter('o')" aria-label="Lowercase o">o</button>
-  </div>
-  <div class="letter-tile">
-    <button type="button" onclick="selectLetter('P')" aria-label="Uppercase P">P</button>
-    <button type="button" onclick="selectLetter('p')" aria-label="Lowercase p">p</button>
-  </div>
-  <div class="letter-tile">
-    <button type="button" onclick="selectLetter('Q')" aria-label="Uppercase Q">Q</button>
-    <button type="button" onclick="selectLetter('q')" aria-label="Lowercase q">q</button>
-  </div>
-  <div class="letter-tile">
-    <button type="button" onclick="selectLetter('R')" aria-label="Uppercase R">R</button>
-    <button type="button" onclick="selectLetter('r')" aria-label="Lowercase r">r</button>
-  </div>
-  <div class="letter-tile">
-    <button type="button" onclick="selectLetter('S')" aria-label="Uppercase S">S</button>
-    <button type="button" onclick="selectLetter('s')" aria-label="Lowercase s">s</button>
-  </div>
-  <div class="letter-tile">
-    <button type="button" onclick="selectLetter('T')" aria-label="Uppercase T">T</button>
-    <button type="button" onclick="selectLetter('t')" aria-label="Lowercase t">t</button>
-  </div>
-  <div class="letter-tile">
-    <button type="button" onclick="selectLetter('U')" aria-label="Uppercase U">U</button>
-    <button type="button" onclick="selectLetter('u')" aria-label="Lowercase u">u</button>
-  </div>
-  <div class="letter-tile">
-    <button type="button" onclick="selectLetter('V')" aria-label="Uppercase V">V</button>
-    <button type="button" onclick="selectLetter('v')" aria-label="Lowercase v">v</button>
-  </div>
-  <div class="letter-tile">
-    <button type="button" onclick="selectLetter('W')" aria-label="Uppercase W">W</button>
-    <button type="button" onclick="selectLetter('w')" aria-label="Lowercase w">w</button>
-  </div>
-  <div class="letter-tile">
-    <button type="button" onclick="selectLetter('X')" aria-label="Uppercase X">X</button>
-    <button type="button" onclick="selectLetter('x')" aria-label="Lowercase x">x</button>
-  </div>
-  <div class="letter-tile">
-    <button type="button" onclick="selectLetter('Y')" aria-label="Uppercase Y">Y</button>
-    <button type="button" onclick="selectLetter('y')" aria-label="Lowercase y">y</button>
-  </div>
-  <div class="letter-tile">
-    <button type="button" onclick="selectLetter('Z')" aria-label="Uppercase Z">Z</button>
-    <button type="button" onclick="selectLetter('z')" aria-label="Lowercase z">z</button>
-  </div>
-</div>
+  <form id="entry-screen" class="screen" aria-label="Enter a word or sentence" hidden>
+    <div class="entry-field">
+      <input id="word-input" type="text" aria-label="Word or sentence to write" autocomplete="off" spellcheck="false" enterkeyhint="go">
+    </div>
+    <div class="controls">
+      <button id="entry-back" class="action secondary" type="button" aria-label="Back to letter grid"><svg aria-hidden="true"><use href="#icon-back"/></svg></button>
+      <button id="start-word" class="action advance" type="submit" aria-label="Start tracing word" disabled><svg aria-hidden="true"><use href="#icon-next"/></svg></button>
+    </div>
+  </form>
+
+  <section id="draw-screen" class="screen" aria-label="Drawing" hidden>
+    <div id="canvas-stage">
+      <canvas id="letter-canvas" aria-label="Draw the current letter"></canvas>
+      <div id="showcase-art" role="img" hidden></div>
+    </div>
+    <div class="controls">
+      <button id="open-grid" class="action secondary" type="button" aria-label="Letter grid"><svg aria-hidden="true"><use href="#icon-grid"/></svg></button>
+      <button id="next-letter" class="action" type="button" aria-label="Next letter" hidden><svg aria-hidden="true"><use id="next-icon" href="#icon-next"/></svg></button>
+      <button id="clear-canvas" class="action secondary advance" type="button" aria-label="Clear current drawing"><svg aria-hidden="true"><use href="#icon-trash"/></svg></button>
+    </div>
+    <div id="word-strip" class="strip word-strip" role="group" aria-label="Letters in your word" hidden></div>
+    <div class="drawing-dock">
+      <div id="active-slot" aria-label="Current active drawing"></div>
+      <div id="history-strip" class="strip history-strip" role="group" aria-label="Drawing history, newest first"></div>
+    </div>
+  </section>
+
+</main>
 <script src="js/letters.js"></script>
 <script src="js/letter-renderer.js"></script>
+<script src="js/drawing-store.js"></script>
 <script src="js/index.js"></script>
 </body>
+</html>
