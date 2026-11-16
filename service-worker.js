@@ -1,4 +1,4 @@
-const cacheName = 'reletter-v12';
+const cacheName = 'reletter-v13';
 const filesToCache = [
   './',
   './index.html',

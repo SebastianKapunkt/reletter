@@ -297,7 +297,7 @@ function buildLetterGrid() {
       button.type = 'button';
       button.textContent = name;
       button.setAttribute('aria-label', `${name === character ? 'Uppercase' : 'Lowercase'} ${name}`);
-      button.addEventListener('click', () => selectFreeDrawing(state.latest[name] || emptyDrawing(name)));
+      button.addEventListener('click', () => selectFreeDrawing(emptyDrawing(name)));
       pair.append(button);
     }
     grid.append(pair);
